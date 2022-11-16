@@ -1,0 +1,29 @@
+﻿[
+  {
+    "PublishingHouseId": 5,
+    "Title": "adadad",
+    "PublishingHouse": {
+      "Id": 5,
+      "Name": "ada",
+      "Adress": "ada"
+    }
+  },
+  {
+    "PublishingHouseId": 4,
+    "Title": "Щоденник нейрохірурга",
+    "PublishingHouse": {
+      "Id": 4,
+      "Name": "adadad",
+      "Adress": "Адреса ad"
+    }
+  },
+  {
+    "PublishingHouseId": 6,
+    "Title": "Посібник. Алгебра 9",
+    "PublishingHouse": {
+      "Id": 3,
+      "Name": "ГІМНАЗІЯ",
+      "Adress": "Адреса d"
+    }
+  }
+]
