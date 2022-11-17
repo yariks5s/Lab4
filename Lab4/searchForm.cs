@@ -8,7 +8,7 @@ public partial class SearchForm : Form
 {
     private bool _isCollapsed;
     private bool _isOpened;
-
+    private bool _isChanging;
     public SearchForm()
     {
         InitializeComponent();
@@ -41,11 +41,11 @@ public partial class SearchForm : Form
     private void searchByTitleButton_Click(object sender, EventArgs e)
     {
         dataGridView1.Rows.Clear();
-        if (!_isOpened) timer1.Start();
         if (searchTextBox.Text == "")
             MessageBox.Show(@"Please, Enter the right input", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         else
         {
+            if (!_isOpened) timer1.Start();
             List<Book> booklist = Helper.SearchByTitle(Form1.Instance.Books, searchTextBox.Text);
             FillDataGrid(booklist);
         }
@@ -55,11 +55,11 @@ public partial class SearchForm : Form
     private void searchByIdButton_Click(object sender, EventArgs e)
     {
         dataGridView1.Rows.Clear();
-        if (!_isOpened) timer1.Start();
         if (searchTextBox.Text == "")
             MessageBox.Show(@"Please, Enter the right input", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         else
         {
+            if (!_isOpened) timer1.Start();
             List<Book> booklist = Helper.SearchByIds(Form1.Instance.Books, searchTextBox.Text);
             FillDataGrid(booklist);
         }
@@ -68,11 +68,11 @@ public partial class SearchForm : Form
     private void searchByAddressButton_Click(object sender, EventArgs e)
     {
         dataGridView1.Rows.Clear();
-        if (!_isOpened) timer1.Start();
         if (searchTextBox.Text == "")
             MessageBox.Show(@"Please, Enter the right input", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         else
         {
+            if (!_isOpened) timer1.Start();
             List<Book> booklist = Helper.SearchByAddresses(Form1.Instance.Books, searchTextBox.Text);
             FillDataGrid(booklist);
         }
@@ -113,5 +113,71 @@ public partial class SearchForm : Form
                 dataGridView1.Rows.Add(list);
             }
         }
+    }
+
+    private void changeSelectedButton_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (!_isChanging)
+            {
+                idTextBox.Visible = true;
+                idTextBox.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                titleTextBox.Visible = true;
+                titleTextBox.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                addressTextBox.Visible = true;
+                addressTextBox.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                commitChangesButton.Visible = true;
+                changeSelectedButton.Text = @"Cancel changing";
+                _isChanging = true;
+            }
+            else
+            {
+                idTextBox.Visible = false;
+                titleTextBox.Visible = false;
+                commitChangesButton.Visible = false;
+                idTextBox.Text = "";
+                titleTextBox.Text = "";
+                addressTextBox.Text = "";
+                changeSelectedButton.Text = @"Change selected";
+                _isChanging = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            idTextBox.Visible = false;
+            MessageBox.Show(@"There is an error. Try to select row", @"Error");
+        }
+    }
+
+    private void commitChangesButton_Click(object sender, EventArgs e)
+    {
+
+        if (idTextBox.Text != "" && Int32.TryParse(idTextBox.Text, out var id) 
+                                 && Helper.UniqueCheck(Form1.Instance.Books, id))
+        {
+            List<Book> newBook = Helper.ChangeBook(Form1.Instance.Books,
+                dataGridView1.SelectedRows[0].Cells[0].Value.ToString(),
+                idTextBox.Text, titleTextBox.Text, addressTextBox.Text);
+            MessageBox.Show(@"Done!", @"Done!");
+            Form1.Instance.Books = newBook;
+            idTextBox.Text = "";
+            titleTextBox.Text = "";
+            addressTextBox.Text = "";
+            Form1.Instance.UpdateRows(newBook);
+            dataGridView1.Rows.Clear();
+            timer1.Start();
+            _isOpened = false;
+            idTextBox.Visible = false;
+            titleTextBox.Visible = false;
+            addressTextBox.Visible = false;
+            commitChangesButton.Visible = false;
+            idTextBox.Text = "";
+            titleTextBox.Text = "";
+            addressTextBox.Text = "";
+            changeSelectedButton.Text = @"Change selected";
+            _isChanging = false;
+        }
+        else MessageBox.Show(@"There is an error. Try again", @"Error");
     }
 }

@@ -18,8 +18,8 @@ public partial class Greeting : Form
         OpenFileDialog fdlg = Form1.Instance.ChooseFile();
         if (fdlg.ShowDialog() == DialogResult.OK)
         {
-            if(Helper.Deserialize(fdlg.FileName) != null) Form1.Instance._currPath = fdlg.FileName;
             Form1.Instance.FillRows(fdlg.FileName);
+            Form1.Instance._currPath = fdlg.FileName;
             Form1.Instance.Show();
             Hide();
         }

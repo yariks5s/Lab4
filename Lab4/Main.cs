@@ -142,7 +142,7 @@ namespace Lab4
             OpenFileDialog fdlg = new OpenFileDialog();
             fdlg.Title = @"Select File:";
             fdlg.InitialDirectory = @"c:\";
-            fdlg.Filter = "All files (*.*)|*.*|All files (*.*)|*.*";
+            fdlg.Filter = @"Json files (*.json)|*.json";
             fdlg.FilterIndex = 2;
             fdlg.RestoreDirectory = true;
             return fdlg;
@@ -150,6 +150,16 @@ namespace Lab4
         protected override void OnLoad(EventArgs e)
         {
             base.Hide();
+        }
+
+        public void UpdateRows(List<Book> books)
+        {
+            dataGridView1.Rows.Clear();
+            foreach (var book in books)
+            {
+                object[] list = { book.PublishingHouseId.ToString(), book.Title, book.PublishingHouse.Adress };
+                dataGridView1.Rows.Add(list);
+            }
         }
     }
 }

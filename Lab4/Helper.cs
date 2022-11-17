@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Lab4;
 
-public class Helper
+public class Helper : Form1
 {
     //             Deserializing
     public static dynamic Deserialize(string path)
@@ -20,14 +20,12 @@ public class Helper
             try
             {
                  books = JsonSerializer.Deserialize<List<Book>>(fs);
-                 return books;
-                
             }
             catch (Exception e)
             {
                 MessageBox.Show(@"There is error here. Please, try again", @"Error");
-                return null;
             }
+            return books;
         }
     }
     //             Serializing
@@ -80,10 +78,35 @@ public class Helper
     {
         List<Book> result = new List<Book>();
         var myLinqQuery = from book in b 
-            where !book.PublishingHouseId.ToString().Equals(pattern)
-            select book;
+                                         where !book.PublishingHouseId.ToString().Equals(pattern)
+                                         select book;
         
         foreach (var book in myLinqQuery) result.Add(book);
+        return result;
+    }
+    public static List<Book> ChangeBook(List<Book> b, string pattern, string id, string title, string address)
+    {
+        List<Book> result = new List<Book>();
+        var myLinqQuery = from book in b 
+                                         where book.PublishingHouseId.ToString().Equals(pattern)
+                                         select book;
+        var myLinqQuery1 = from book in b 
+                                          where !book.PublishingHouseId.ToString().Equals(pattern)
+                                          select book;
+
+        foreach (var book in myLinqQuery1) result.Add(book);
+
+        if (!UniqueCheck(result, Int32.Parse(pattern))) {return b;}
+
+        foreach (var book in myLinqQuery)
+        {
+            Int32.TryParse(id, out int a);
+            book.PublishingHouseId = a;
+            book.Title = title;
+            book.PublishingHouse.Adress = address;
+            result.Add(book);
+        }
+
         return result;
     }
 
