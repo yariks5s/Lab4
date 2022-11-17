@@ -20,17 +20,20 @@ namespace Lab4
         private bool _isCollapsed;
         public static Form1 Instance;
         public List<Book> Books = new List<Book>();
+        public string _currPath = @"C:\Users\bryuh\RiderProjects\ConsoleApp1\Task6\bin\Debug\net6.0\data.json";
         //             Here we have common directory for JSON data 
         public Form1()
         {
             InitializeComponent();           
-            FillRows(@"C:\Users\bryuh\RiderProjects\ConsoleApp1\Task6\bin\Debug\net6.0\data.json");
+            //FillRows(_currPath);
             Instance = this;
+            Greeting greeting = new Greeting();
+            greeting.Show();
         }
         //             Filling the rows with data
-        private void FillRows(string path)
+        public void FillRows(string path)
         {
-            
+            dataGridView1.Rows.Clear();
             List<Book> items = Helper.Deserialize(path);
             if (items.Count <= 0)
             {
@@ -93,38 +96,29 @@ namespace Lab4
         
         private void saveAsButton_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog fdlg = new OpenFileDialog();
-            fdlg.Title = @"Select File:";
-            fdlg.InitialDirectory = @"c:\";
-            fdlg.Filter = "All files (*.*)|*.*|All files (*.*)|*.*";
-            fdlg.FilterIndex = 2;
-            fdlg.RestoreDirectory = true;
+            OpenFileDialog fdlg = ChooseFile();
             if (fdlg.ShowDialog() == DialogResult.OK)
             {
-                string path = fdlg.FileName;
-                Helper.Serialize(Books, path);
+                _currPath = fdlg.FileName;
+                Helper.Serialize(Books, _currPath);
             }
         }
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fdlg = new OpenFileDialog();
-            fdlg.Title = @"Select File:";
-            fdlg.InitialDirectory = @"c:\";
-            fdlg.Filter = "All files (*.*)|*.*|All files (*.*)|*.*";
-            fdlg.FilterIndex = 2;
-            fdlg.RestoreDirectory = true;
+            Books.Clear();
+            OpenFileDialog fdlg = ChooseFile();
             if (fdlg.ShowDialog() == DialogResult.OK)
             {
-                string path = fdlg.FileName;
+                if(Helper.Deserialize(fdlg.FileName) != null) Form1.Instance._currPath = fdlg.FileName;
                 dataGridView1.Rows.Clear();
-                FillRows(path);
+                FillRows(_currPath);
             }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Helper.Serialize(Books, @"C:\Users\bryuh\RiderProjects\Lab4\Lab4\testing.json");
+            Helper.Serialize(Books, _currPath);
         }
         
         private void searchButton_Click(object sender, EventArgs e)
@@ -141,6 +135,21 @@ namespace Lab4
                 object[] list = { book.PublishingHouseId.ToString(), book.Title, book.PublishingHouse.Adress };
                 dataGridView1.Rows.Add(list);
             }
+        }
+
+        public OpenFileDialog ChooseFile()
+        {
+            OpenFileDialog fdlg = new OpenFileDialog();
+            fdlg.Title = @"Select File:";
+            fdlg.InitialDirectory = @"c:\";
+            fdlg.Filter = "All files (*.*)|*.*|All files (*.*)|*.*";
+            fdlg.FilterIndex = 2;
+            fdlg.RestoreDirectory = true;
+            return fdlg;
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.Hide();
         }
     }
 }

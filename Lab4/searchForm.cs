@@ -8,7 +8,6 @@ public partial class SearchForm : Form
 {
     private bool _isCollapsed;
     private bool _isOpened;
-    private Form1 _main = null;
 
     public SearchForm()
     {

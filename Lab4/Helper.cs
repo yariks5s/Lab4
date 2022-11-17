@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Windows.Forms;
 
 namespace Lab4;
 
@@ -12,10 +13,22 @@ public class Helper
     //             Deserializing
     public static dynamic Deserialize(string path)
     {
-        FileStream fs = new FileStream(path,
-            FileMode.Open);
-        List<Book> books = JsonSerializer.Deserialize<List<Book>>(fs);
-        return books;
+        using (FileStream fs = new FileStream(path,
+                   FileMode.Open))
+        {
+            List<Book> books = null;
+            try
+            {
+                 books = JsonSerializer.Deserialize<List<Book>>(fs);
+                 return books;
+                
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(@"There is error here. Please, try again", @"Error");
+                return null;
+            }
+        }
     }
     //             Serializing
     public static void Serialize(List<Book> b, string path)
@@ -25,9 +38,11 @@ public class Helper
             WriteIndented = true,
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
         };
-        FileStream fileStream = new FileStream(path, FileMode.Truncate);
-        JsonSerializer.Serialize(fileStream, b, options);
-        Console.WriteLine(@"done");
+        using (FileStream fileStream = new FileStream(path, FileMode.Truncate))
+        {
+            JsonSerializer.Serialize(fileStream, b, options);
+            Console.WriteLine(@"done");
+        }
     }
     //             Searching by different criteria
     public static List<Book> SearchByTitle(List<Book> b, string pattern)
@@ -78,5 +93,14 @@ public class Helper
         Book book = new Book();
         book.PublishingHouse = ph;
         return book;
+    }
+
+    public static bool UniqueCheck(List<Book> books, int pattern)
+    {
+        foreach (var book in books)
+        {
+            if (book.PublishingHouseId == pattern) return false;
+        }
+        return true;
     }
 }
