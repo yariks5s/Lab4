@@ -40,6 +40,7 @@ partial class AddData
         // 
         // label1
         // 
+        this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
         this.label1.Location = new System.Drawing.Point(12, 9);
         this.label1.Name = "label1";
@@ -49,6 +50,7 @@ partial class AddData
         // 
         // idTextBox
         // 
+        this.idTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.idTextBox.Location = new System.Drawing.Point(18, 112);
         this.idTextBox.Name = "idTextBox";
         this.idTextBox.Size = new System.Drawing.Size(139, 22);
@@ -56,6 +58,7 @@ partial class AddData
         // 
         // titleTextBox
         // 
+        this.titleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.titleTextBox.Location = new System.Drawing.Point(200, 112);
         this.titleTextBox.Name = "titleTextBox";
         this.titleTextBox.Size = new System.Drawing.Size(139, 22);
@@ -63,6 +66,7 @@ partial class AddData
         // 
         // addressTextBox
         // 
+        this.addressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.addressTextBox.Location = new System.Drawing.Point(378, 112);
         this.addressTextBox.Name = "addressTextBox";
         this.addressTextBox.Size = new System.Drawing.Size(139, 22);
@@ -70,6 +74,7 @@ partial class AddData
         // 
         // addDataTextButton
         // 
+        this.addDataTextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.addDataTextButton.Location = new System.Drawing.Point(170, 180);
         this.addDataTextButton.Name = "addDataTextButton";
         this.addDataTextButton.Size = new System.Drawing.Size(136, 42);

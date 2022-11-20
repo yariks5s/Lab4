@@ -55,6 +55,7 @@ partial class SearchForm
         // 
         // searchByIdButton
         // 
+        this.searchByIdButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.searchByIdButton.Location = new System.Drawing.Point(33, 21);
         this.searchByIdButton.Name = "searchByIdButton";
         this.searchByIdButton.Size = new System.Drawing.Size(132, 26);
@@ -65,6 +66,7 @@ partial class SearchForm
         // 
         // searchByTitleButton
         // 
+        this.searchByTitleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.searchByTitleButton.Location = new System.Drawing.Point(221, 21);
         this.searchByTitleButton.Name = "searchByTitleButton";
         this.searchByTitleButton.Size = new System.Drawing.Size(132, 26);
@@ -75,6 +77,7 @@ partial class SearchForm
         // 
         // searchByAddressButton
         // 
+        this.searchByAddressButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.searchByAddressButton.Location = new System.Drawing.Point(404, 21);
         this.searchByAddressButton.Name = "searchByAddressButton";
         this.searchByAddressButton.Size = new System.Drawing.Size(137, 26);
@@ -85,6 +88,7 @@ partial class SearchForm
         // 
         // searchTextBox
         // 
+        this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.searchTextBox.Location = new System.Drawing.Point(34, 61);
         this.searchTextBox.Name = "searchTextBox";
         this.searchTextBox.Size = new System.Drawing.Size(146, 22);
@@ -92,22 +96,24 @@ partial class SearchForm
         // 
         // panel1
         // 
+        this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.panel1.Controls.Add(this.dataGridView1);
         this.panel1.Location = new System.Drawing.Point(33, 115);
         this.panel1.MaximumSize = new System.Drawing.Size(502, 201);
         this.panel1.MinimumSize = new System.Drawing.Size(502, 0);
         this.panel1.Name = "panel1";
-        this.panel1.Size = new System.Drawing.Size(502, 18);
+        this.panel1.Size = new System.Drawing.Size(502, 29);
         this.panel1.TabIndex = 4;
         // 
         // dataGridView1
         // 
+        this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.Id, this.Title, this.Address });
-        this.dataGridView1.Location = new System.Drawing.Point(0, 24);
+        this.dataGridView1.Location = new System.Drawing.Point(1, 30);
         this.dataGridView1.Name = "dataGridView1";
         this.dataGridView1.RowTemplate.Height = 24;
-        this.dataGridView1.Size = new System.Drawing.Size(501, 174);
+        this.dataGridView1.Size = new System.Drawing.Size(501, 0);
         this.dataGridView1.TabIndex = 0;
         // 
         // Id
@@ -134,6 +140,7 @@ partial class SearchForm
         // 
         // closeTableButton
         // 
+        this.closeTableButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.closeTableButton.BackColor = System.Drawing.Color.White;
         this.closeTableButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
         this.closeTableButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
@@ -149,6 +156,7 @@ partial class SearchForm
         // 
         // deleteSelectedButton
         // 
+        this.deleteSelectedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.deleteSelectedButton.Location = new System.Drawing.Point(548, 229);
         this.deleteSelectedButton.Name = "deleteSelectedButton";
         this.deleteSelectedButton.Size = new System.Drawing.Size(90, 50);
@@ -159,6 +167,7 @@ partial class SearchForm
         // 
         // changeSelectedButton
         // 
+        this.changeSelectedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.changeSelectedButton.Location = new System.Drawing.Point(548, 173);
         this.changeSelectedButton.Name = "changeSelectedButton";
         this.changeSelectedButton.Size = new System.Drawing.Size(90, 50);
@@ -169,6 +178,7 @@ partial class SearchForm
         // 
         // commitChangesButton
         // 
+        this.commitChangesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.commitChangesButton.Location = new System.Drawing.Point(548, 335);
         this.commitChangesButton.Name = "commitChangesButton";
         this.commitChangesButton.Size = new System.Drawing.Size(90, 50);
@@ -180,6 +190,7 @@ partial class SearchForm
         // 
         // idTextBox
         // 
+        this.idTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.idTextBox.Location = new System.Drawing.Point(33, 363);
         this.idTextBox.Name = "idTextBox";
         this.idTextBox.Size = new System.Drawing.Size(146, 22);
@@ -188,6 +199,7 @@ partial class SearchForm
         // 
         // titleTextBox
         // 
+        this.titleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.titleTextBox.Location = new System.Drawing.Point(207, 363);
         this.titleTextBox.Name = "titleTextBox";
         this.titleTextBox.Size = new System.Drawing.Size(146, 22);
@@ -197,6 +209,7 @@ partial class SearchForm
         // 
         // addressTextBox
         // 
+        this.addressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
         this.addressTextBox.Location = new System.Drawing.Point(379, 363);
         this.addressTextBox.Name = "addressTextBox";
         this.addressTextBox.Size = new System.Drawing.Size(146, 22);

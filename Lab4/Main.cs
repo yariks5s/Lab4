@@ -20,7 +20,7 @@ namespace Lab4
         private bool _isCollapsed;
         public static Form1 Instance;
         public List<Book> Books = new List<Book>();
-        public string _currPath = @"C:\Users\bryuh\RiderProjects\ConsoleApp1\Task6\bin\Debug\net6.0\data.json";
+        public string _currPath = @"C:\Users\bryuh\RiderProjects\Lab_4\Lab4\testing.json";
         //             Here we have common directory for JSON data 
         public Form1()
         {
@@ -56,9 +56,8 @@ namespace Lab4
         
         private void AboutButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(@"Author is Yaroslav Briukhovetskyi
-                            Variant No. __", @"About", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            aboutForm about = new aboutForm();
+            about.Show();
         }
         
         private void AddData_Click(object sender, EventArgs e)
@@ -106,11 +105,11 @@ namespace Lab4
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            Books.Clear();
             OpenFileDialog fdlg = ChooseFile();
             if (fdlg.ShowDialog() == DialogResult.OK)
             {
-                if(Helper.Deserialize(fdlg.FileName) != null) Form1.Instance._currPath = fdlg.FileName;
+                _currPath = fdlg.FileName;
+                Books.Clear();
                 dataGridView1.Rows.Clear();
                 FillRows(_currPath);
             }

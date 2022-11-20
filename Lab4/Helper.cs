@@ -42,13 +42,15 @@ public class Helper : Form1
             Console.WriteLine(@"done");
         }
     }
-    //             Searching by different criteria
+
+    #region Searching
+
     public static List<Book> SearchByTitle(List<Book> b, string pattern)
     {
         List<Book> result = new List<Book>();
         var myLinqQuery = from book in b 
-                                         where book.Title.Contains(pattern) 
-                                         select book;
+            where book.Title.Contains(pattern) 
+            select book;
         
         foreach (var book in myLinqQuery) result.Add(book);
         return result;
@@ -73,6 +75,9 @@ public class Helper : Form1
         foreach (var book in myLinqQuery) result.Add(book);
         return result;
     }
+
+    #endregion Searching by different criteria
+    
     //             Deleting from list
     public static List<Book> DeleteBook(List<Book> b, string pattern)
     {

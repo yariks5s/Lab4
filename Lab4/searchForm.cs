@@ -153,8 +153,7 @@ public partial class SearchForm : Form
     private void commitChangesButton_Click(object sender, EventArgs e)
     {
 
-        if (idTextBox.Text != "" && Int32.TryParse(idTextBox.Text, out var id) 
-                                 && Helper.UniqueCheck(Form1.Instance.Books, id))
+        if (idTextBox.Text != "" && Int32.TryParse(idTextBox.Text, out var id))
         {
             List<Book> newBook = Helper.ChangeBook(Form1.Instance.Books,
                 dataGridView1.SelectedRows[0].Cells[0].Value.ToString(),

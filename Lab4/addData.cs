@@ -13,9 +13,9 @@ public partial class AddData : Form
     //             Adding data to list
     private void addDataTextButton_Click(object sender, EventArgs e)
     {
-        Book book = Helper.CreateBook();
         if (Int32.TryParse(idTextBox.Text, out var id) && Helper.UniqueCheck(Form1.Instance.Books, id))
         {
+            Book book = Helper.CreateBook();
             book.PublishingHouseId = id;
             book.Title = titleTextBox.Text;
             book.PublishingHouse.Adress = addressTextBox.Text;
